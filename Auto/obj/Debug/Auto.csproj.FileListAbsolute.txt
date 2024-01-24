@@ -1,0 +1,12 @@
+C:\Users\root\source\repos\Auto\Auto\bin\Debug\Auto.exe.config
+C:\Users\root\source\repos\Auto\Auto\bin\Debug\Auto.exe
+C:\Users\root\source\repos\Auto\Auto\bin\Debug\Auto.pdb
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.csproj.AssemblyReference.cache
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.csproj.SuggestedBindingRedirects.cache
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.MainForm.resources
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.Properties.Resources.resources
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.csproj.GenerateResource.cache
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.csproj.CoreCompileInputs.cache
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.exe
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.pdb
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.InfoForm.resources
