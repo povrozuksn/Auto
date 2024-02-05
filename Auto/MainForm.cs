@@ -124,5 +124,29 @@ namespace Auto
 
             
         }
+
+        private void RegButton_Click(object sender, EventArgs e)
+        {
+            RegForm reg = new RegForm();
+            reg.ShowDialog();
+        }
+
+        private void HelpButton_Click(object sender, EventArgs e)
+        {
+            HelpForm help = new HelpForm();
+            help.ShowDialog();
+        }
+
+        private void FiltrButton_Click(object sender, EventArgs e)
+        {
+            if(FiltrPanel.Height > 33)
+            {
+                FiltrPanel.Height = 33;                
+            }
+            else
+            {
+                FiltrPanel.Height = 127;
+            }
+        }
     }
 }
