@@ -10,3 +10,4 @@ C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.csproj.CoreCompileInputs.cac
 C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.exe
 C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.pdb
 C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.InfoForm.resources
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.AuthForm.resources

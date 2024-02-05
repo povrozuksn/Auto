@@ -42,11 +42,11 @@ namespace Auto
 
     public partial class MainForm : Form
     {
+        Car[] car_list = new Car[5];
+
         public MainForm()
         {
-            InitializeComponent();
-
-            Car[] car_list = new Car[5];
+            InitializeComponent();            
 
             car_list[0] = new Car("Lada Priora", "Седан", "МКПП", 87, 100000);
             car_list[1] = new Car("Lada Granta", "Седан", "МКПП", 120, 200000);
@@ -56,12 +56,23 @@ namespace Auto
             
 
             Text = "Справочник по автомобилям";
+            HelloLabel.Visible = false;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            InfoForm info = new InfoForm(btn.Text);
+            info.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
             int x = 30;
             int y = 30;
-            for(int i=0; i<5; i++)
+            for (int i = 0; i < 5; i++)
             {
-                car_list[i].btn.Location = new Point(x, y+160);
+                car_list[i].btn.Location = new Point(x, y + 160);
                 car_list[i].btn.Size = new Size(230, 30);
                 car_list[i].btn.UseVisualStyleBackColor = true;
                 car_list[i].btn.Click += new EventHandler(button1_Click);
@@ -73,21 +84,45 @@ namespace Auto
                 ViewPanel.Controls.Add(car_list[i].pic);
 
                 x += 240;
-                if(x>900)
+                if (x > this.Size.Width - 150)
                 {
                     y += 200;
                     x = 30;
                 }
             }
-                       
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ViewPanel_Resize(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            InfoForm info = new InfoForm(btn.Text);
-            info.ShowDialog();
+            MainForm_Load(null, null);
+        }
+
+        private void AuthButton_Click(object sender, EventArgs e)
+        {
+            if (AuthForm.Login == "")
+            {
+                AuthForm authForm = new AuthForm();
+                authForm.ShowDialog();
+            }
+            else
+            {
+                AuthForm.Login = "";
+            }
+
+            if (AuthForm.Login == "")
+            {
+                AuthButton.Text = "Войти";
+                HelloLabel.Visible = false;
+            }
+            else
+            {
+                AuthButton.Text = "Выйти";
+                HelloLabel.Visible = true;
+                HelloLabel.Text = "Вы авторизовались как " + AuthForm.Login;
+            }
+
+            
         }
     }
 }

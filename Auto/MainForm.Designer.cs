@@ -31,6 +31,9 @@
             this.ViewPanel = new System.Windows.Forms.Panel();
             this.UserPanel = new System.Windows.Forms.Panel();
             this.FiltrPanel = new System.Windows.Forms.Panel();
+            this.AuthButton = new System.Windows.Forms.Button();
+            this.HelloLabel = new System.Windows.Forms.Label();
+            this.UserPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ViewPanel
@@ -41,10 +44,13 @@
             this.ViewPanel.Name = "ViewPanel";
             this.ViewPanel.Size = new System.Drawing.Size(1032, 473);
             this.ViewPanel.TabIndex = 8;
+            this.ViewPanel.Resize += new System.EventHandler(this.ViewPanel_Resize);
             // 
             // UserPanel
             // 
             this.UserPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.UserPanel.Controls.Add(this.HelloLabel);
+            this.UserPanel.Controls.Add(this.AuthButton);
             this.UserPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserPanel.Location = new System.Drawing.Point(0, 0);
             this.UserPanel.Name = "UserPanel";
@@ -60,6 +66,25 @@
             this.FiltrPanel.Size = new System.Drawing.Size(1032, 127);
             this.FiltrPanel.TabIndex = 10;
             // 
+            // AuthButton
+            // 
+            this.AuthButton.Location = new System.Drawing.Point(19, 12);
+            this.AuthButton.Name = "AuthButton";
+            this.AuthButton.Size = new System.Drawing.Size(136, 37);
+            this.AuthButton.TabIndex = 0;
+            this.AuthButton.Text = "Войти";
+            this.AuthButton.UseVisualStyleBackColor = true;
+            this.AuthButton.Click += new System.EventHandler(this.AuthButton_Click);
+            // 
+            // HelloLabel
+            // 
+            this.HelloLabel.AutoSize = true;
+            this.HelloLabel.Location = new System.Drawing.Point(170, 18);
+            this.HelloLabel.Name = "HelloLabel";
+            this.HelloLabel.Size = new System.Drawing.Size(64, 25);
+            this.HelloLabel.TabIndex = 1;
+            this.HelloLabel.Text = "label1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -74,6 +99,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.UserPanel.ResumeLayout(false);
+            this.UserPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -82,6 +110,8 @@
         private System.Windows.Forms.Panel ViewPanel;
         private System.Windows.Forms.Panel UserPanel;
         private System.Windows.Forms.Panel FiltrPanel;
+        private System.Windows.Forms.Button AuthButton;
+        private System.Windows.Forms.Label HelloLabel;
     }
 }
 
