@@ -42,35 +42,28 @@ namespace Auto
 
     public partial class MainForm : Form
     {
-        Car[] car_list = new Car[5];
+        Car[] car_list = new Car[8];
 
         public MainForm()
         {
             InitializeComponent();            
 
-            car_list[0] = new Car("Lada Priora", "Седан", "МКПП", 87, 100000);
+            car_list[0] = new Car("Lada Priora", "Хэчбэк", "МКПП", 87, 100000);
             car_list[1] = new Car("Lada Granta", "Седан", "МКПП", 120, 200000);
             car_list[2] = new Car("Lada Vesta", "Седан", "МКПП", 140, 300000);
-            car_list[3] = new Car("Lada Xray", "Универсал", "МКПП", 150, 400000);
+            car_list[3] = new Car("Lada Xray", "Универсал", "АКПП", 150, 400000);
             car_list[4] = new Car("Kia Rio", "Седан", "АКПП", 180, 500000);
-            
+            car_list[5] = new Car("Kia Stinger", "Седан", "АКПП", 180, 500000);
+            car_list[6] = new Car("Kia Sportage", "Хэчбэк", "АКПП", 180, 500000);
+            car_list[7] = new Car("Kia Karnival", "Универсал", "МКПП", 180, 500000);
+
 
             Text = "Справочник по автомобилям";
             HelloLabel.Visible = false;
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            InfoForm info = new InfoForm(btn.Text);
-            info.ShowDialog();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
             int x = 30;
             int y = 30;
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 8; i++)
             {
                 car_list[i].btn.Location = new Point(x, y + 160);
                 car_list[i].btn.Size = new Size(230, 30);
@@ -90,6 +83,17 @@ namespace Auto
                     x = 30;
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            InfoForm info = new InfoForm(btn.Text);
+            info.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {            
 
         }
 
@@ -145,7 +149,57 @@ namespace Auto
             }
             else
             {
-                FiltrPanel.Height = 127;
+                FiltrPanel.Height = 120;
+            }
+        }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            int x = 30;
+            int y = 30;
+            for (int i=0; i<8; i++)
+            {
+                car_list[i].btn.Visible = true;
+                car_list[i].pic.Visible = true;
+
+                if (kuzovCheckedListBox.CheckedItems.Count>0 &&
+                    !kuzovCheckedListBox.CheckedItems.Contains(car_list[i].kuzov))
+                {
+                    car_list[i].btn.Visible = false;
+                    car_list[i].pic.Visible = false;
+                }
+
+                if (nameTextBox.Text != "" && !car_list[i].name.Contains(nameTextBox.Text))
+                {
+                    car_list[i].btn.Visible = false;
+                    car_list[i].pic.Visible = false;
+                }
+
+                if(kppComboBox.Text != "" && kppComboBox.Text != car_list[i].kpp)
+                {
+                    car_list[i].btn.Visible = false;
+                    car_list[i].pic.Visible = false;
+                }
+
+                if (kuzovComboBox.Text != "" && kuzovComboBox.Text != car_list[i].kuzov)
+                {
+                    car_list[i].btn.Visible = false;
+                    car_list[i].pic.Visible = false;
+                }
+
+                if (car_list[i].btn.Visible)
+                {
+                    car_list[i].btn.Location = new Point(x, y + 160);
+                    car_list[i].pic.Location = new Point(x, y);
+
+                    x += 240;
+                    if (x > this.Size.Width - 150)
+                    {
+                        y += 200;
+                        x = 30;
+                    }
+                }               
+
             }
         }
     }
