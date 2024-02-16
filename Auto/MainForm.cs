@@ -42,28 +42,26 @@ namespace Auto
 
     public partial class MainForm : Form
     {
-        Car[] car_list = new Car[8];
+        List <Car> car_list = new List <Car> ();
 
         public MainForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
 
-            car_list[0] = new Car("Lada Priora", "Хэчбэк", "МКПП", 87, 100000);
-            car_list[1] = new Car("Lada Granta", "Седан", "МКПП", 120, 200000);
-            car_list[2] = new Car("Lada Vesta", "Седан", "МКПП", 140, 300000);
-            car_list[3] = new Car("Lada Xray", "Универсал", "АКПП", 150, 400000);
-            car_list[4] = new Car("Kia Rio", "Седан", "АКПП", 180, 500000);
-            car_list[5] = new Car("Kia Stinger", "Седан", "АКПП", 180, 500000);
-            car_list[6] = new Car("Kia Sportage", "Хэчбэк", "АКПП", 180, 500000);
-            car_list[7] = new Car("Kia Karnival", "Универсал", "МКПП", 180, 500000);
-
-
+            string[] strs = System.IO.File.ReadAllLines("Cars.txt");
+            
+            foreach (string str in strs)
+            {
+                string[] parts = str.Split(new string[] {", "}, StringSplitOptions.None);
+                car_list.Add(new Car(parts[0], parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4])));
+            }
+           
             Text = "Справочник по автомобилям";
             HelloLabel.Visible = false;
 
             int x = 30;
             int y = 30;
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < car_list.Count; i++)
             {
                 car_list[i].btn.Location = new Point(x, y + 160);
                 car_list[i].btn.Size = new Size(230, 30);
@@ -87,9 +85,15 @@ namespace Auto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
-            InfoForm info = new InfoForm(btn.Text);
-            info.ShowDialog();
+            for (int i = 0; i < car_list.Count; i++)
+            {
+                if(((Button)sender).Text == car_list[i].btn.Text)
+                {
+                    InfoForm info = new InfoForm(car_list[i]);
+                    info.ShowDialog();
+                }
+            }
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -99,7 +103,7 @@ namespace Auto
 
         private void ViewPanel_Resize(object sender, EventArgs e)
         {
-            MainForm_Load(null, null);
+            FindButton_Click(null, null);
         }
 
         private void AuthButton_Click(object sender, EventArgs e)
@@ -157,7 +161,7 @@ namespace Auto
         {
             int x = 30;
             int y = 30;
-            for (int i=0; i<8; i++)
+            for (int i=0; i<car_list.Count; i++)
             {
                 car_list[i].btn.Visible = true;
                 car_list[i].pic.Visible = true;
@@ -181,7 +185,15 @@ namespace Auto
                     car_list[i].pic.Visible = false;
                 }
 
-                if (kuzovComboBox.Text != "" && kuzovComboBox.Text != car_list[i].kuzov)
+                if (powerComboBox.Text != "" && 
+                    Convert.ToInt32(powerComboBox.Text) < car_list[i].power)
+                {
+                    car_list[i].btn.Visible = false;
+                    car_list[i].pic.Visible = false;
+                }
+
+                if (priceTextBox.Text != "" &&
+                    Convert.ToInt32(priceTextBox.Text) < car_list[i].price)
                 {
                     car_list[i].btn.Visible = false;
                     car_list[i].pic.Visible = false;
@@ -200,6 +212,22 @@ namespace Auto
                     }
                 }               
 
+            }
+        }
+
+        private void nameTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                FindButton_Click(null, null);
+            }
+        }
+
+        private void priceTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                FindButton_Click(null, null);
             }
         }
     }

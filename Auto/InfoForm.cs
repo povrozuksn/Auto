@@ -12,14 +12,19 @@ namespace Auto
 {
     public partial class InfoForm : Form
     {
-        public InfoForm(string name)
+        public InfoForm(Car car)
         {
             InitializeComponent();
 
-            Text = name;
-            label1.Text = name;
+            Text = car.name;
+            label1.Text = car.name;
 
-            pictureBox1.Load("../../Pictures/" + name + ".jpg");
+            pictureBox1.Load("../../Pictures/" + car.name + ".jpg");
+
+            KuzovLabel.Text = car.kuzov;
+            kppLabel.Text = car.kpp;
+            powerLabel.Text = car.power.ToString();
+            priceLabel.Text = car.price.ToString();
 
         }
     }

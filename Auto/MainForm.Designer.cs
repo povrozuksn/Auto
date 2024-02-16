@@ -35,15 +35,18 @@
             this.HelloLabel = new System.Windows.Forms.Label();
             this.AuthButton = new System.Windows.Forms.Button();
             this.FiltrPanel = new System.Windows.Forms.Panel();
+            this.kuzovCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.FindButton = new System.Windows.Forms.Button();
-            this.kuzovComboBox = new System.Windows.Forms.ComboBox();
+            this.powerComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.kppComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.FiltrButton = new System.Windows.Forms.Button();
-            this.kuzovCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.priceTextBox = new System.Windows.Forms.TextBox();
             this.UserPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.SuspendLayout();
@@ -113,9 +116,12 @@
             // FiltrPanel
             // 
             this.FiltrPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.FiltrPanel.Controls.Add(this.label5);
+            this.FiltrPanel.Controls.Add(this.priceTextBox);
+            this.FiltrPanel.Controls.Add(this.label4);
             this.FiltrPanel.Controls.Add(this.kuzovCheckedListBox);
             this.FiltrPanel.Controls.Add(this.FindButton);
-            this.FiltrPanel.Controls.Add(this.kuzovComboBox);
+            this.FiltrPanel.Controls.Add(this.powerComboBox);
             this.FiltrPanel.Controls.Add(this.label3);
             this.FiltrPanel.Controls.Add(this.kppComboBox);
             this.FiltrPanel.Controls.Add(this.label2);
@@ -128,33 +134,46 @@
             this.FiltrPanel.Size = new System.Drawing.Size(1032, 139);
             this.FiltrPanel.TabIndex = 10;
             // 
+            // kuzovCheckedListBox
+            // 
+            this.kuzovCheckedListBox.FormattingEnabled = true;
+            this.kuzovCheckedListBox.Items.AddRange(new object[] {
+            "Седан",
+            "Хэчбэк",
+            "Универсал"});
+            this.kuzovCheckedListBox.Location = new System.Drawing.Point(382, 49);
+            this.kuzovCheckedListBox.Name = "kuzovCheckedListBox";
+            this.kuzovCheckedListBox.Size = new System.Drawing.Size(154, 79);
+            this.kuzovCheckedListBox.TabIndex = 8;
+            // 
             // FindButton
             // 
-            this.FindButton.Location = new System.Drawing.Point(920, 39);
+            this.FindButton.Location = new System.Drawing.Point(920, 46);
             this.FindButton.Name = "FindButton";
-            this.FindButton.Size = new System.Drawing.Size(100, 34);
+            this.FindButton.Size = new System.Drawing.Size(100, 66);
             this.FindButton.TabIndex = 7;
             this.FindButton.Text = "Найти";
             this.FindButton.UseVisualStyleBackColor = true;
             this.FindButton.Click += new System.EventHandler(this.FindButton_Click);
             // 
-            // kuzovComboBox
+            // powerComboBox
             // 
-            this.kuzovComboBox.FormattingEnabled = true;
-            this.kuzovComboBox.Items.AddRange(new object[] {
+            this.powerComboBox.FormattingEnabled = true;
+            this.powerComboBox.Items.AddRange(new object[] {
             "",
-            "Седан",
-            "Хэчбэк",
-            "Универсал"});
-            this.kuzovComboBox.Location = new System.Drawing.Point(432, 41);
-            this.kuzovComboBox.Name = "kuzovComboBox";
-            this.kuzovComboBox.Size = new System.Drawing.Size(164, 33);
-            this.kuzovComboBox.TabIndex = 6;
+            "50",
+            "100",
+            "150",
+            "200"});
+            this.powerComboBox.Location = new System.Drawing.Point(733, 46);
+            this.powerComboBox.Name = "powerComboBox";
+            this.powerComboBox.Size = new System.Drawing.Size(164, 33);
+            this.powerComboBox.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(314, 48);
+            this.label3.Location = new System.Drawing.Point(264, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 25);
             this.label3.TabIndex = 5;
@@ -169,7 +188,7 @@
             "АКПП"});
             this.kppComboBox.Location = new System.Drawing.Point(102, 79);
             this.kppComboBox.Name = "kppComboBox";
-            this.kppComboBox.Size = new System.Drawing.Size(164, 33);
+            this.kppComboBox.Size = new System.Drawing.Size(156, 33);
             this.kppComboBox.TabIndex = 4;
             // 
             // label2
@@ -194,8 +213,9 @@
             // 
             this.nameTextBox.Location = new System.Drawing.Point(102, 43);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(195, 30);
+            this.nameTextBox.Size = new System.Drawing.Size(156, 30);
             this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nameTextBox_KeyDown);
             // 
             // FiltrButton
             // 
@@ -207,17 +227,31 @@
             this.FiltrButton.UseVisualStyleBackColor = true;
             this.FiltrButton.Click += new System.EventHandler(this.FiltrButton_Click);
             // 
-            // kuzovCheckedListBox
+            // label4
             // 
-            this.kuzovCheckedListBox.FormattingEnabled = true;
-            this.kuzovCheckedListBox.Items.AddRange(new object[] {
-            "Седан",
-            "Хэчбэк",
-            "Универсал"});
-            this.kuzovCheckedListBox.Location = new System.Drawing.Point(642, 33);
-            this.kuzovCheckedListBox.Name = "kuzovCheckedListBox";
-            this.kuzovCheckedListBox.Size = new System.Drawing.Size(154, 79);
-            this.kuzovCheckedListBox.TabIndex = 8;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(542, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(185, 25);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Мощность, л.с., до";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(595, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 25);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Цена, руб. от";
+            // 
+            // priceTextBox
+            // 
+            this.priceTextBox.Location = new System.Drawing.Point(733, 82);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.Size = new System.Drawing.Size(164, 30);
+            this.priceTextBox.TabIndex = 10;
+            this.priceTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.priceTextBox_KeyDown);
             // 
             // MainForm
             // 
@@ -252,13 +286,16 @@
         private System.Windows.Forms.Button HelpButton;
         private System.Windows.Forms.Button FiltrButton;
         private System.Windows.Forms.Button FindButton;
-        private System.Windows.Forms.ComboBox kuzovComboBox;
+        private System.Windows.Forms.ComboBox powerComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox kppComboBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.CheckedListBox kuzovCheckedListBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox priceTextBox;
+        private System.Windows.Forms.Label label4;
     }
 }
 
