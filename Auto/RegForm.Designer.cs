@@ -104,6 +104,7 @@
             // 
             this.PassTB.Location = new System.Drawing.Point(12, 290);
             this.PassTB.Name = "PassTB";
+            this.PassTB.PasswordChar = '*';
             this.PassTB.Size = new System.Drawing.Size(298, 30);
             this.PassTB.TabIndex = 8;
             // 
@@ -120,6 +121,7 @@
             // 
             this.RePassTB.Location = new System.Drawing.Point(12, 372);
             this.RePassTB.Name = "RePassTB";
+            this.RePassTB.PasswordChar = '*';
             this.RePassTB.Size = new System.Drawing.Size(298, 30);
             this.RePassTB.TabIndex = 10;
             // 

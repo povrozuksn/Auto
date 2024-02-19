@@ -43,6 +43,7 @@ namespace Auto
     public partial class MainForm : Form
     {
         List <Car> car_list = new List <Car> ();
+        public static string Login = "";
 
         public MainForm()
         {
@@ -108,26 +109,28 @@ namespace Auto
 
         private void AuthButton_Click(object sender, EventArgs e)
         {
-            if (AuthForm.Login == "")
+            if (Login == "")
             {
                 AuthForm authForm = new AuthForm();
                 authForm.ShowDialog();
             }
             else
             {
-                AuthForm.Login = "";
+                Login = "";
             }
 
-            if (AuthForm.Login == "")
+            if (Login == "")
             {
                 AuthButton.Text = "Войти";
                 HelloLabel.Visible = false;
+                RegButton.Visible = true;
             }
             else
             {
                 AuthButton.Text = "Выйти";
                 HelloLabel.Visible = true;
-                HelloLabel.Text = "Вы авторизовались как " + AuthForm.Login;
+                RegButton.Visible = false;
+                HelloLabel.Text = "Вы авторизовались как " + AuthForm.name + " " + AuthForm.family;
             }
 
             

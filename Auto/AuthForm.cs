@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,7 +13,8 @@ namespace Auto
 {
     public partial class AuthForm : Form
     {
-        public static string Login = "";
+        public static string name = "";
+        public static string family = "";
 
         public AuthForm()
         {
@@ -25,15 +27,22 @@ namespace Auto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (LoginTextBox.Text == "Serg" && PassTextBox.Text == "12345")
+            string[] strs = File.ReadAllLines("users.txt");
+
+            foreach (string str in strs)
             {
-                Login = LoginTextBox.Text;
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Неправильный логин/пароль");
-            }
+                string[] parts = str.Split(new string[] {", "}, StringSplitOptions.None);
+
+                if (LoginTextBox.Text == parts[2] && PassTextBox.Text == parts[3])
+                {
+                    name = parts[0];
+                    family = parts[1];
+                    MainForm.Login = parts[2];
+                    Close();
+                    return;
+                }
+            }            
+            MessageBox.Show("Неправильный логин/пароль");            
         }
     }
 }
