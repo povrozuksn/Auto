@@ -42,6 +42,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.AddSelectBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,7 +86,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Location = new System.Drawing.Point(6, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 25);
             this.label3.TabIndex = 4;
@@ -94,7 +95,7 @@
             // KuzovLabel
             // 
             this.KuzovLabel.AutoSize = true;
-            this.KuzovLabel.Location = new System.Drawing.Point(179, 0);
+            this.KuzovLabel.Location = new System.Drawing.Point(222, 3);
             this.KuzovLabel.Name = "KuzovLabel";
             this.KuzovLabel.Size = new System.Drawing.Size(64, 25);
             this.KuzovLabel.TabIndex = 5;
@@ -103,7 +104,7 @@
             // kppLabel
             // 
             this.kppLabel.AutoSize = true;
-            this.kppLabel.Location = new System.Drawing.Point(179, 146);
+            this.kppLabel.Location = new System.Drawing.Point(222, 147);
             this.kppLabel.Name = "kppLabel";
             this.kppLabel.Size = new System.Drawing.Size(64, 25);
             this.kppLabel.TabIndex = 7;
@@ -112,16 +113,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 146);
+            this.label5.Location = new System.Drawing.Point(6, 147);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(153, 50);
+            this.label5.Size = new System.Drawing.Size(192, 25);
             this.label5.TabIndex = 6;
             this.label5.Text = "Тип трансмиссии - ";
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(179, 219);
+            this.priceLabel.Location = new System.Drawing.Point(222, 219);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(64, 25);
             this.priceLabel.TabIndex = 11;
@@ -130,7 +131,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 219);
+            this.label6.Location = new System.Drawing.Point(6, 219);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 25);
             this.label6.TabIndex = 10;
@@ -139,7 +140,7 @@
             // powerLabel
             // 
             this.powerLabel.AutoSize = true;
-            this.powerLabel.Location = new System.Drawing.Point(179, 73);
+            this.powerLabel.Location = new System.Drawing.Point(222, 75);
             this.powerLabel.Name = "powerLabel";
             this.powerLabel.Size = new System.Drawing.Size(64, 25);
             this.powerLabel.TabIndex = 9;
@@ -148,7 +149,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 73);
+            this.label8.Location = new System.Drawing.Point(6, 75);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(168, 50);
             this.label8.TabIndex = 8;
@@ -188,11 +189,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 294);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
+            // AddSelectBTN
+            // 
+            this.AddSelectBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.AddSelectBTN.ForeColor = System.Drawing.Color.Red;
+            this.AddSelectBTN.Location = new System.Drawing.Point(945, 12);
+            this.AddSelectBTN.Name = "AddSelectBTN";
+            this.AddSelectBTN.Size = new System.Drawing.Size(178, 38);
+            this.AddSelectBTN.TabIndex = 14;
+            this.AddSelectBTN.Text = "в Избранное";
+            this.AddSelectBTN.UseVisualStyleBackColor = false;
+            this.AddSelectBTN.Click += new System.EventHandler(this.AddSelectBTN_Click);
+            // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1135, 405);
+            this.Controls.Add(this.AddSelectBTN);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -227,5 +241,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button AddSelectBTN;
     }
 }

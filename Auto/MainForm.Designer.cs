@@ -35,6 +35,9 @@
             this.HelloLabel = new System.Windows.Forms.Label();
             this.AuthButton = new System.Windows.Forms.Button();
             this.FiltrPanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.priceTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.kuzovCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.FindButton = new System.Windows.Forms.Button();
             this.powerComboBox = new System.Windows.Forms.ComboBox();
@@ -44,9 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.FiltrButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.priceTextBox = new System.Windows.Forms.TextBox();
+            this.SelectFormBTN = new System.Windows.Forms.Button();
             this.UserPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +65,7 @@
             // UserPanel
             // 
             this.UserPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.UserPanel.Controls.Add(this.SelectFormBTN);
             this.UserPanel.Controls.Add(this.HelpButton);
             this.UserPanel.Controls.Add(this.RegButton);
             this.UserPanel.Controls.Add(this.HelloLabel);
@@ -133,6 +135,32 @@
             this.FiltrPanel.Name = "FiltrPanel";
             this.FiltrPanel.Size = new System.Drawing.Size(1032, 139);
             this.FiltrPanel.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(595, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 25);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Цена, руб. от";
+            // 
+            // priceTextBox
+            // 
+            this.priceTextBox.Location = new System.Drawing.Point(733, 82);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.Size = new System.Drawing.Size(164, 30);
+            this.priceTextBox.TabIndex = 10;
+            this.priceTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.priceTextBox_KeyDown);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(542, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(185, 25);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Мощность, л.с., до";
             // 
             // kuzovCheckedListBox
             // 
@@ -227,31 +255,15 @@
             this.FiltrButton.UseVisualStyleBackColor = true;
             this.FiltrButton.Click += new System.EventHandler(this.FiltrButton_Click);
             // 
-            // label4
+            // SelectFormBTN
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(542, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(185, 25);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Мощность, л.с., до";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(595, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 25);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Цена, руб. от";
-            // 
-            // priceTextBox
-            // 
-            this.priceTextBox.Location = new System.Drawing.Point(733, 82);
-            this.priceTextBox.Name = "priceTextBox";
-            this.priceTextBox.Size = new System.Drawing.Size(164, 30);
-            this.priceTextBox.TabIndex = 10;
-            this.priceTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.priceTextBox_KeyDown);
+            this.SelectFormBTN.Location = new System.Drawing.Point(547, 12);
+            this.SelectFormBTN.Name = "SelectFormBTN";
+            this.SelectFormBTN.Size = new System.Drawing.Size(156, 37);
+            this.SelectFormBTN.TabIndex = 4;
+            this.SelectFormBTN.Text = "Избранное";
+            this.SelectFormBTN.UseVisualStyleBackColor = true;
+            this.SelectFormBTN.Click += new System.EventHandler(this.SelectFormBTN_Click);
             // 
             // MainForm
             // 
@@ -296,6 +308,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button SelectFormBTN;
     }
 }
 

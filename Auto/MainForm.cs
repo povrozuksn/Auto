@@ -12,6 +12,7 @@ using System.Xml.Linq;
 
 namespace Auto
 {
+    #region Структура объекта справочника 
     public struct Car
     {
         public string name;
@@ -39,6 +40,7 @@ namespace Auto
             pic.Load("../../Pictures/" + name + ".jpg");
         }
     }
+    #endregion
 
     public partial class MainForm : Form
     {
@@ -59,7 +61,9 @@ namespace Auto
            
             Text = "Справочник по автомобилям";
             HelloLabel.Visible = false;
+            SelectFormBTN.Visible = false;
 
+            #region Отображение объектов на форме
             int x = 30;
             int y = 30;
             for (int i = 0; i < car_list.Count; i++)
@@ -82,6 +86,7 @@ namespace Auto
                     x = 30;
                 }
             }
+            #endregion
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -107,6 +112,7 @@ namespace Auto
             FindButton_Click(null, null);
         }
 
+        #region Авторизация пользователя
         private void AuthButton_Click(object sender, EventArgs e)
         {
             if (Login == "")
@@ -124,17 +130,18 @@ namespace Auto
                 AuthButton.Text = "Войти";
                 HelloLabel.Visible = false;
                 RegButton.Visible = true;
+                SelectFormBTN.Visible = false;
             }
             else
             {
                 AuthButton.Text = "Выйти";
                 HelloLabel.Visible = true;
                 RegButton.Visible = false;
+                SelectFormBTN.Visible = true;
                 HelloLabel.Text = "Вы авторизовались как " + AuthForm.name + " " + AuthForm.family;
-            }
-
-            
+            }            
         }
+        #endregion
 
         private void RegButton_Click(object sender, EventArgs e)
         {
@@ -160,6 +167,7 @@ namespace Auto
             }
         }
 
+        #region Фильтр
         private void FindButton_Click(object sender, EventArgs e)
         {
             int x = 30;
@@ -217,6 +225,7 @@ namespace Auto
 
             }
         }
+        #endregion
 
         private void nameTextBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -232,6 +241,12 @@ namespace Auto
             {
                 FindButton_Click(null, null);
             }
+        }
+
+        private void SelectFormBTN_Click(object sender, EventArgs e)
+        {
+            SelectForm selectForm = new SelectForm();
+            selectForm.ShowDialog();
         }
     }
 }
