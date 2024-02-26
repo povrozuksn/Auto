@@ -33,7 +33,14 @@ namespace Auto
 
         private void AddSelectBTN_Click(object sender, EventArgs e)
         {
-            SelectForm.my_cars_list.Add(car);
+            if(SelectForm.my_cars_list.ContainsKey(car))
+            {
+                SelectForm.my_cars_list[car]++;
+            }
+            else
+            {
+                SelectForm.my_cars_list.Add(car, 1);
+            }
         }
     }
 }
