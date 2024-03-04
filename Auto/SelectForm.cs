@@ -68,20 +68,57 @@ namespace Auto
                 Label lbl5 = new Label();
                 lbl5.Text = "Цена: " + car.price;
                 lbl5.Location = new Point(900, y);
-                lbl5.Size = new Size(300, 30);
+                lbl5.Size = new Size(200, 30);
                 Controls.Add(lbl5);
                 #endregion
 
                 #region Количество
                 Label lbl6 = new Label();
-                lbl6.Text = "Кол: " + my_car.Value + " шт.";
-                lbl6.Location = new Point(900, y + 100);
+                lbl6.Text = "Кол, шт.:";
+                lbl6.Location = new Point(900, y + 65);
                 lbl6.Size = new Size(300, 30);
                 Controls.Add(lbl6);
+
+                NumericUpDown numericUpDown1 = new NumericUpDown();
+                numericUpDown1.Location = new Point(900, y + 100);
+                numericUpDown1.Size = new Size(100, 30);
+                numericUpDown1.Value = new decimal(my_car.Value);
+                Controls.Add(numericUpDown1);
+                #endregion
+
+                #region Кнопка удаления из Избранного
+                Button btn1 = new Button();
+                btn1.Location = new Point(1100, y);
+                btn1.Size = new Size(130, 40);
+                btn1.Text = "Удалить";
+                btn1.Click += new EventHandler(DeleteClick);
+                Controls.Add(btn1);
                 #endregion
 
                 y += 180;
             }
+        }
+
+        void DeleteClick(object sender, EventArgs e)
+        {
+            int i = 0;
+            Button btn = (Button)sender;
+            Dictionary<Car, int> my_cars = new Dictionary<Car, int>();
+            foreach(KeyValuePair<Car, int> my_car in my_cars_list)
+            {
+                Car car = my_car.Key;
+                if(btn.Location == new Point(1100, 50+180*i))
+                {
+
+                }
+                else
+                {
+                    my_cars[my_car.Key] = my_car.Value;
+                }
+                i++;
+            }
+            my_cars_list = my_cars;
+
         }
     }
 }
