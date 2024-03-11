@@ -18,8 +18,15 @@ namespace Auto
         {
             InitializeComponent();
 
+            Draw();
+        }
+
+        void Draw()
+        {
+            Controls.Clear();
+
             int y = 50;
-            foreach(KeyValuePair<Car, int> my_car in my_cars_list)
+            foreach (KeyValuePair<Car, int> my_car in my_cars_list)
             {
                 Car car = my_car.Key;
 
@@ -40,6 +47,15 @@ namespace Auto
                 Controls.Add(lbl1);
                 #endregion
 
+                #region Кнопка перехода на страницу объекта
+                Button btn = new Button();
+                btn.Location = new Point(300, y+100);
+                btn.Size = new Size(130, 40);
+                btn.Text = car.name;
+                btn.Click += new EventHandler(MainForm.carClick);
+                Controls.Add(btn);
+                #endregion
+
                 #region Тип кузова объекта
                 Label lbl2 = new Label();
                 lbl2.Text = "Тип кузова - " + car.kuzov;
@@ -51,7 +67,7 @@ namespace Auto
                 #region Тип трансмисии объекта
                 Label lbl3 = new Label();
                 lbl3.Text = "Тип трансмисии - " + car.kpp;
-                lbl3.Location = new Point(600, y+50);
+                lbl3.Location = new Point(600, y + 50);
                 lbl3.Size = new Size(300, 30);
                 Controls.Add(lbl3);
                 #endregion
@@ -118,7 +134,7 @@ namespace Auto
                 i++;
             }
             my_cars_list = my_cars;
-
+            Draw();
         }
     }
 }

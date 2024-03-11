@@ -20,16 +20,18 @@ namespace Auto
         public string kpp;
         public int power;
         public int price;
+        public string web;
         public Button btn;
         public PictureBox pic;
 
-        public Car(string _name, string _kuzov, string _kpp, int _power, int _price)
+        public Car(string _name, string _kuzov, string _kpp, int _power, int _price, string _web)
         {
             name = _name;
             kuzov = _kuzov;
             kpp = _kpp;
             power = _power;
             price = _price;
+            web = _web;
             btn = new Button();
             pic = new PictureBox();
 
@@ -44,7 +46,7 @@ namespace Auto
 
     public partial class MainForm : Form
     {
-        List <Car> car_list = new List <Car> ();
+        public static List <Car> car_list = new List <Car> ();
         public static string Login = "";
 
         public MainForm()
@@ -56,7 +58,7 @@ namespace Auto
             foreach (string str in strs)
             {
                 string[] parts = str.Split(new string[] {", "}, StringSplitOptions.None);
-                car_list.Add(new Car(parts[0], parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4])));
+                car_list.Add(new Car(parts[0], parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4]), parts[5]));
             }
            
             Text = "Справочник по автомобилям";
@@ -71,7 +73,7 @@ namespace Auto
                 car_list[i].btn.Location = new Point(x, y + 160);
                 car_list[i].btn.Size = new Size(230, 30);
                 car_list[i].btn.UseVisualStyleBackColor = true;
-                car_list[i].btn.Click += new EventHandler(button1_Click);
+                car_list[i].btn.Click += new EventHandler(carClick);
                 ViewPanel.Controls.Add(car_list[i].btn);
 
                 car_list[i].pic.Location = new Point(x, y);
@@ -89,7 +91,7 @@ namespace Auto
             #endregion
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public static void carClick(object sender, EventArgs e)
         {
             for (int i = 0; i < car_list.Count; i++)
             {

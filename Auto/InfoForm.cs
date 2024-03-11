@@ -24,6 +24,12 @@ namespace Auto
 
             pictureBox1.Load("../../Pictures/" + car.name + ".jpg");
 
+            try
+            {
+                InfoTextBox.Text = System.IO.File.ReadAllText("../../Pictures/" + car.name + ".txt");
+            }
+            catch (Exception) { }
+
             KuzovLabel.Text = car.kuzov;
             kppLabel.Text = car.kpp;
             powerLabel.Text = car.power.ToString();
@@ -41,6 +47,11 @@ namespace Auto
             {
                 SelectForm.my_cars_list.Add(car, 1);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(car.web);
         }
     }
 }
