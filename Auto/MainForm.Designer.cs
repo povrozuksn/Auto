@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ViewPanel = new System.Windows.Forms.Panel();
             this.UserPanel = new System.Windows.Forms.Panel();
+            this.SelectFormBTN = new System.Windows.Forms.Button();
             this.HelpButton = new System.Windows.Forms.Button();
             this.RegButton = new System.Windows.Forms.Button();
             this.HelloLabel = new System.Windows.Forms.Label();
@@ -47,18 +49,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.FiltrButton = new System.Windows.Forms.Button();
-            this.SelectFormBTN = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.добавитьМашинуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ViewPanel
             // 
             this.ViewPanel.AutoScroll = true;
-            this.ViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ViewPanel.Location = new System.Drawing.Point(0, 194);
             this.ViewPanel.Name = "ViewPanel";
-            this.ViewPanel.Size = new System.Drawing.Size(1032, 461);
+            this.ViewPanel.Size = new System.Drawing.Size(1032, 313);
             this.ViewPanel.TabIndex = 8;
             this.ViewPanel.Resize += new System.EventHandler(this.ViewPanel_Resize);
             // 
@@ -75,6 +78,16 @@
             this.UserPanel.Name = "UserPanel";
             this.UserPanel.Size = new System.Drawing.Size(1032, 55);
             this.UserPanel.TabIndex = 9;
+            // 
+            // SelectFormBTN
+            // 
+            this.SelectFormBTN.Location = new System.Drawing.Point(547, 12);
+            this.SelectFormBTN.Name = "SelectFormBTN";
+            this.SelectFormBTN.Size = new System.Drawing.Size(156, 37);
+            this.SelectFormBTN.TabIndex = 4;
+            this.SelectFormBTN.Text = "Избранное";
+            this.SelectFormBTN.UseVisualStyleBackColor = true;
+            this.SelectFormBTN.Click += new System.EventHandler(this.SelectFormBTN_Click);
             // 
             // HelpButton
             // 
@@ -255,15 +268,20 @@
             this.FiltrButton.UseVisualStyleBackColor = true;
             this.FiltrButton.Click += new System.EventHandler(this.FiltrButton_Click);
             // 
-            // SelectFormBTN
+            // contextMenuStrip1
             // 
-            this.SelectFormBTN.Location = new System.Drawing.Point(547, 12);
-            this.SelectFormBTN.Name = "SelectFormBTN";
-            this.SelectFormBTN.Size = new System.Drawing.Size(156, 37);
-            this.SelectFormBTN.TabIndex = 4;
-            this.SelectFormBTN.Text = "Избранное";
-            this.SelectFormBTN.UseVisualStyleBackColor = true;
-            this.SelectFormBTN.Click += new System.EventHandler(this.SelectFormBTN_Click);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.добавитьМашинуToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            // 
+            // добавитьМашинуToolStripMenuItem
+            // 
+            this.добавитьМашинуToolStripMenuItem.Name = "добавитьМашинуToolStripMenuItem";
+            this.добавитьМашинуToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.добавитьМашинуToolStripMenuItem.Text = "Добавить машину";
+            this.добавитьМашинуToolStripMenuItem.Click += new System.EventHandler(this.добавитьМашинуToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -284,6 +302,7 @@
             this.UserPanel.PerformLayout();
             this.FiltrPanel.ResumeLayout(false);
             this.FiltrPanel.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -309,6 +328,8 @@
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button SelectFormBTN;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem добавитьМашинуToolStripMenuItem;
     }
 }
 

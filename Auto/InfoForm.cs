@@ -51,7 +51,11 @@ namespace Auto
 
         private void label1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(car.web);
+            try
+            {
+                System.Diagnostics.Process.Start(car.web);
+            }
+            catch (Exception) { }
         }
     }
 }

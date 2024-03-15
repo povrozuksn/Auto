@@ -14,3 +14,4 @@ C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.AuthForm.resources
 C:\Users\root\Source\Repos\Auto\Auto\obj\Debug\Auto.RegForm.resources
 C:\Users\root\Source\Repos\Auto\Auto\obj\Debug\Auto.HelpForm.resources
 C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.SelectForm.resources
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.AddCarForm.resources

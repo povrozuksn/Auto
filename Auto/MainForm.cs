@@ -250,5 +250,12 @@ namespace Auto
             SelectForm selectForm = new SelectForm();
             selectForm.ShowDialog();
         }
+
+
+        private void добавитьМашинуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCarForm addCar = new AddCarForm();
+            addCar.ShowDialog();
+        }
     }
 }
