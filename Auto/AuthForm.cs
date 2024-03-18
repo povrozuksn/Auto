@@ -15,6 +15,9 @@ namespace Auto
     {
         public static string name = "";
         public static string family = "";
+        public static bool isAdmin;
+        System.Media.SoundPlayer player_error = new System.Media.SoundPlayer(@"../../Sound/error.wav");
+        System.Media.SoundPlayer player_auth = new System.Media.SoundPlayer(@"../../Sound/auth.wav");
 
         public AuthForm()
         {
@@ -38,10 +41,14 @@ namespace Auto
                     name = parts[0];
                     family = parts[1];
                     MainForm.Login = parts[2];
+                    isAdmin = Convert.ToBoolean(Convert.ToInt32(parts[4]));
+                    player_auth.Play();
                     Close();
                     return;
                 }
-            }            
+            }
+
+            player_error.Play();
             MessageBox.Show("Неправильный логин/пароль");            
         }
     }

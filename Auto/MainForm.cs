@@ -39,7 +39,11 @@ namespace Auto
             btn.Text = name;
 
             pic.SizeMode = PictureBoxSizeMode.Zoom;
-            pic.Load("../../Pictures/" + name + ".jpg");
+            try
+            {
+                pic.Load("../../Pictures/" + name + ".jpg");
+            }
+            catch (Exception) { }
         }
     }
     #endregion
@@ -48,10 +52,11 @@ namespace Auto
     {
         public static List <Car> car_list = new List <Car> ();
         public static string Login = "";
+        System.Media.SoundPlayer player_error = new System.Media.SoundPlayer(@"../../Sound/error.wav");
 
         public MainForm()
         {
-            InitializeComponent();
+            InitializeComponent();            
 
             string[] strs = System.IO.File.ReadAllLines("Cars.txt");
             
@@ -254,8 +259,16 @@ namespace Auto
 
         private void добавитьМашинуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCarForm addCar = new AddCarForm();
-            addCar.ShowDialog();
+            if(AuthForm.isAdmin)
+            {
+                AddCarForm addCar = new AddCarForm();
+                addCar.ShowDialog();
+            }
+            else
+            {
+                player_error.Play();
+                MessageBox.Show("Добавлять объекты имеет право только администратор");
+            }
         }
     }
 }

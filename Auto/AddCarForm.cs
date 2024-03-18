@@ -17,9 +17,17 @@ namespace Auto
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            System.IO.File.AppendAllText("Cars.txt",
+                                         Environment.NewLine +
+                                         NameTextBox.Text + ", " +
+                                         KuzovTextBox.Text + ", " +
+                                         KPPComboBox.Text + ", " +
+                                         PowerTextBox.Text + ", " +
+                                         PriceTextBox.Text + ", " +
+                                         WebTextBox.Text);
         }
     }
 }

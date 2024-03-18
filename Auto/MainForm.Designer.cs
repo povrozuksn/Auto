@@ -59,9 +59,10 @@
             // ViewPanel
             // 
             this.ViewPanel.AutoScroll = true;
+            this.ViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ViewPanel.Location = new System.Drawing.Point(0, 194);
             this.ViewPanel.Name = "ViewPanel";
-            this.ViewPanel.Size = new System.Drawing.Size(1032, 313);
+            this.ViewPanel.Size = new System.Drawing.Size(1032, 461);
             this.ViewPanel.TabIndex = 8;
             this.ViewPanel.Resize += new System.EventHandler(this.ViewPanel_Resize);
             // 
@@ -274,12 +275,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьМашинуToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 28);
             // 
             // добавитьМашинуToolStripMenuItem
             // 
             this.добавитьМашинуToolStripMenuItem.Name = "добавитьМашинуToolStripMenuItem";
-            this.добавитьМашинуToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.добавитьМашинуToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
             this.добавитьМашинуToolStripMenuItem.Text = "Добавить машину";
             this.добавитьМашинуToolStripMenuItem.Click += new System.EventHandler(this.добавитьМашинуToolStripMenuItem_Click);
             // 
@@ -289,6 +290,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1032, 655);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.ViewPanel);
             this.Controls.Add(this.FiltrPanel);
             this.Controls.Add(this.UserPanel);

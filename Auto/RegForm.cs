@@ -24,7 +24,7 @@ namespace Auto
             if (PassTB.Text == RePassTB.Text)
             {
                 File.AppendAllText("users.txt", NameTB.Text + ", " + FamilyTB.Text + ", " +
-                                            LoginTB.Text + ", " + PassTB.Text + "" +
+                                            LoginTB.Text + ", " + PassTB.Text + ", " + "0" +
                                             Environment.NewLine);
                 MessageBox.Show("Регистрация пользователя прошла успешно");
                 Close();

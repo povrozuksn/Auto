@@ -21,8 +21,11 @@ namespace Auto
 
             Text = car.name;
             label1.Text = car.name;
-
-            pictureBox1.Load("../../Pictures/" + car.name + ".jpg");
+            try
+            {
+                pictureBox1.Load("../../Pictures/" + car.name + ".jpg");
+            }
+            catch (Exception) { }
 
             try
             {
