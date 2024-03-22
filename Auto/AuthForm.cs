@@ -15,7 +15,7 @@ namespace Auto
     {
         public static string name = "";
         public static string family = "";
-        public static bool isAdmin;
+        public static bool isAdmin = false;
         System.Media.SoundPlayer player_error = new System.Media.SoundPlayer(@"../../Sound/error.wav");
         System.Media.SoundPlayer player_auth = new System.Media.SoundPlayer(@"../../Sound/auth.wav");
 

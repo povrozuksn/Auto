@@ -31,7 +31,6 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.KuzovTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.PowerTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,6 +48,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.KuzovComboBox = new System.Windows.Forms.ComboBox();
+            this.InfoTextBox = new System.Windows.Forms.TextBox();
+            this.CarPictureBox = new System.Windows.Forms.PictureBox();
+            this.PicButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.CarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // SaveButton
@@ -57,7 +62,7 @@
             this.SaveButton.Location = new System.Drawing.Point(0, 572);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(447, 47);
+            this.SaveButton.Size = new System.Drawing.Size(894, 47);
             this.SaveButton.TabIndex = 0;
             this.SaveButton.Text = "Сохранить";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -78,13 +83,6 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(385, 30);
             this.NameTextBox.TabIndex = 2;
-            // 
-            // KuzovTextBox
-            // 
-            this.KuzovTextBox.Location = new System.Drawing.Point(27, 146);
-            this.KuzovTextBox.Name = "KuzovTextBox";
-            this.KuzovTextBox.Size = new System.Drawing.Size(385, 30);
-            this.KuzovTextBox.TabIndex = 4;
             // 
             // label2
             // 
@@ -248,11 +246,64 @@
             this.label14.TabIndex = 20;
             this.label14.Text = "Поля обязательные для заполнения";
             // 
+            // KuzovComboBox
+            // 
+            this.KuzovComboBox.FormattingEnabled = true;
+            this.KuzovComboBox.Items.AddRange(new object[] {
+            "Седан",
+            "Хэтчбек",
+            "Универсал",
+            "Купе",
+            "Кабриолет",
+            "Минивэн",
+            "Внедорожник",
+            "Кроссовер"});
+            this.KuzovComboBox.Location = new System.Drawing.Point(29, 154);
+            this.KuzovComboBox.Name = "KuzovComboBox";
+            this.KuzovComboBox.Size = new System.Drawing.Size(382, 33);
+            this.KuzovComboBox.TabIndex = 21;
+            // 
+            // InfoTextBox
+            // 
+            this.InfoTextBox.Location = new System.Drawing.Point(437, 12);
+            this.InfoTextBox.Multiline = true;
+            this.InfoTextBox.Name = "InfoTextBox";
+            this.InfoTextBox.Size = new System.Drawing.Size(445, 351);
+            this.InfoTextBox.TabIndex = 22;
+            // 
+            // CarPictureBox
+            // 
+            this.CarPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.CarPictureBox.Location = new System.Drawing.Point(437, 378);
+            this.CarPictureBox.Name = "CarPictureBox";
+            this.CarPictureBox.Size = new System.Drawing.Size(219, 154);
+            this.CarPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CarPictureBox.TabIndex = 23;
+            this.CarPictureBox.TabStop = false;
+            // 
+            // PicButton
+            // 
+            this.PicButton.Location = new System.Drawing.Point(679, 493);
+            this.PicButton.Name = "PicButton";
+            this.PicButton.Size = new System.Drawing.Size(203, 39);
+            this.PicButton.TabIndex = 24;
+            this.PicButton.Text = "Добавить картинку";
+            this.PicButton.UseVisualStyleBackColor = true;
+            this.PicButton.Click += new System.EventHandler(this.PicButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // AddCarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 619);
+            this.ClientSize = new System.Drawing.Size(894, 619);
+            this.Controls.Add(this.PicButton);
+            this.Controls.Add(this.CarPictureBox);
+            this.Controls.Add(this.InfoTextBox);
+            this.Controls.Add(this.KuzovComboBox);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -269,7 +320,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.PriceTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.KuzovTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label1);
@@ -278,6 +328,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddCarForm";
             this.Text = "AddCarForm";
+            ((System.ComponentModel.ISupportInitialize)(this.CarPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,7 +339,6 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.TextBox KuzovTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox PowerTextBox;
         private System.Windows.Forms.Label label3;
@@ -306,5 +356,10 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox KuzovComboBox;
+        private System.Windows.Forms.TextBox InfoTextBox;
+        private System.Windows.Forms.PictureBox CarPictureBox;
+        private System.Windows.Forms.Button PicButton;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

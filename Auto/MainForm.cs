@@ -70,6 +70,11 @@ namespace Auto
             HelloLabel.Visible = false;
             SelectFormBTN.Visible = false;
 
+            ReDraw();
+        }
+
+        void ReDraw()
+        {
             #region Отображение объектов на форме
             int x = 30;
             int y = 30;
@@ -130,6 +135,7 @@ namespace Auto
             else
             {
                 Login = "";
+                AuthForm.isAdmin = false;
             }
 
             if (Login == "")
@@ -269,6 +275,11 @@ namespace Auto
                 player_error.Play();
                 MessageBox.Show("Добавлять объекты имеет право только администратор");
             }
+        }
+
+        private void UpDateButton_Click(object sender, EventArgs e)
+        {
+            ReDraw();
         }
     }
 }

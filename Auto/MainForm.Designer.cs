@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ViewPanel = new System.Windows.Forms.Panel();
             this.UserPanel = new System.Windows.Forms.Panel();
             this.SelectFormBTN = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.FiltrButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьМашинуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UpDateButton = new System.Windows.Forms.Button();
             this.UserPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -69,6 +71,7 @@
             // UserPanel
             // 
             this.UserPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.UserPanel.Controls.Add(this.UpDateButton);
             this.UserPanel.Controls.Add(this.SelectFormBTN);
             this.UserPanel.Controls.Add(this.HelpButton);
             this.UserPanel.Controls.Add(this.RegButton);
@@ -92,11 +95,11 @@
             // 
             // HelpButton
             // 
-            this.HelpButton.Location = new System.Drawing.Point(892, 12);
+            this.HelpButton.Location = new System.Drawing.Point(949, 12);
             this.HelpButton.Name = "HelpButton";
-            this.HelpButton.Size = new System.Drawing.Size(129, 37);
+            this.HelpButton.Size = new System.Drawing.Size(37, 37);
             this.HelpButton.TabIndex = 3;
-            this.HelpButton.Text = "Помощь";
+            this.HelpButton.Text = "?";
             this.HelpButton.UseVisualStyleBackColor = true;
             this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
             // 
@@ -284,6 +287,17 @@
             this.добавитьМашинуToolStripMenuItem.Text = "Добавить машину";
             this.добавитьМашинуToolStripMenuItem.Click += new System.EventHandler(this.добавитьМашинуToolStripMenuItem_Click);
             // 
+            // UpDateButton
+            // 
+            this.UpDateButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UpDateButton.BackgroundImage")));
+            this.UpDateButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UpDateButton.Location = new System.Drawing.Point(992, 12);
+            this.UpDateButton.Name = "UpDateButton";
+            this.UpDateButton.Size = new System.Drawing.Size(37, 37);
+            this.UpDateButton.TabIndex = 0;
+            this.UpDateButton.UseVisualStyleBackColor = true;
+            this.UpDateButton.Click += new System.EventHandler(this.UpDateButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -332,6 +346,7 @@
         private System.Windows.Forms.Button SelectFormBTN;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem добавитьМашинуToolStripMenuItem;
+        private System.Windows.Forms.Button UpDateButton;
     }
 }
 
