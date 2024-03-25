@@ -53,9 +53,15 @@ namespace Auto
 
             System.IO.File.AppendAllText("../../Pictures/" + NameTextBox.Text + ".txt", InfoTextBox.Text);
 
+            if (FileName != "")
+            {
+                System.IO.File.Copy(FileName, "../../Pictures/" + NameTextBox.Text + ".jpg");
+            }
+
             MessageBox.Show("Объект успешно сохранен");
             Close();
         }
+        
         string FileName = "";
         private void PicButton_Click(object sender, EventArgs e)
         {

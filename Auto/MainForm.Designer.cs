@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ViewPanel = new System.Windows.Forms.Panel();
             this.UserPanel = new System.Windows.Forms.Panel();
             this.SelectFormBTN = new System.Windows.Forms.Button();
@@ -52,7 +51,7 @@
             this.FiltrButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьМашинуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UpDateButton = new System.Windows.Forms.Button();
+            this.удалитьМашинуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -71,7 +70,6 @@
             // UserPanel
             // 
             this.UserPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.UserPanel.Controls.Add(this.UpDateButton);
             this.UserPanel.Controls.Add(this.SelectFormBTN);
             this.UserPanel.Controls.Add(this.HelpButton);
             this.UserPanel.Controls.Add(this.RegButton);
@@ -276,9 +274,10 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьМашинуToolStripMenuItem});
+            this.добавитьМашинуToolStripMenuItem,
+            this.удалитьМашинуToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
             // 
             // добавитьМашинуToolStripMenuItem
             // 
@@ -287,16 +286,12 @@
             this.добавитьМашинуToolStripMenuItem.Text = "Добавить машину";
             this.добавитьМашинуToolStripMenuItem.Click += new System.EventHandler(this.добавитьМашинуToolStripMenuItem_Click);
             // 
-            // UpDateButton
+            // удалитьМашинуToolStripMenuItem
             // 
-            this.UpDateButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("UpDateButton.BackgroundImage")));
-            this.UpDateButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.UpDateButton.Location = new System.Drawing.Point(992, 12);
-            this.UpDateButton.Name = "UpDateButton";
-            this.UpDateButton.Size = new System.Drawing.Size(37, 37);
-            this.UpDateButton.TabIndex = 0;
-            this.UpDateButton.UseVisualStyleBackColor = true;
-            this.UpDateButton.Click += new System.EventHandler(this.UpDateButton_Click);
+            this.удалитьМашинуToolStripMenuItem.Name = "удалитьМашинуToolStripMenuItem";
+            this.удалитьМашинуToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.удалитьМашинуToolStripMenuItem.Text = "Удалить машину";
+            this.удалитьМашинуToolStripMenuItem.Click += new System.EventHandler(this.удалитьМашинуToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -346,7 +341,7 @@
         private System.Windows.Forms.Button SelectFormBTN;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem добавитьМашинуToolStripMenuItem;
-        private System.Windows.Forms.Button UpDateButton;
+        private System.Windows.Forms.ToolStripMenuItem удалитьМашинуToolStripMenuItem;
     }
 }
 

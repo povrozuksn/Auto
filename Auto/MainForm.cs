@@ -56,16 +56,8 @@ namespace Auto
 
         public MainForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
 
-            string[] strs = System.IO.File.ReadAllLines("Cars.txt");
-            
-            foreach (string str in strs)
-            {
-                string[] parts = str.Split(new string[] {", "}, StringSplitOptions.None);
-                car_list.Add(new Car(parts[0], parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4]), parts[5]));
-            }
-           
             Text = "Справочник по автомобилям";
             HelloLabel.Visible = false;
             SelectFormBTN.Visible = false;
@@ -75,6 +67,18 @@ namespace Auto
 
         void ReDraw()
         {
+            #region Чтение объектов
+            car_list.Clear();
+
+            string[] strs = System.IO.File.ReadAllLines("Cars.txt");
+
+            foreach (string str in strs)
+            {
+                string[] parts = str.Split(new string[] { ", " }, StringSplitOptions.None);
+                car_list.Add(new Car(parts[0], parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4]), parts[5]));
+            }
+            #endregion
+
             #region Отображение объектов на форме
             int x = 30;
             int y = 30;
@@ -277,9 +281,18 @@ namespace Auto
             }
         }
 
-        private void UpDateButton_Click(object sender, EventArgs e)
+        private void удалитьМашинуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ReDraw();
+            if (AuthForm.isAdmin)
+            {
+                DelCarForm delCar = new DelCarForm();
+                delCar.ShowDialog();
+            }
+            else
+            {
+                player_error.Play();
+                MessageBox.Show("Добавлять объекты имеет право только администратор");
+            }
         }
     }
 }
