@@ -61,14 +61,28 @@ namespace Auto
             Text = "Справочник по автомобилям";
             HelloLabel.Visible = false;
             SelectFormBTN.Visible = false;
+           
+        }
+        
 
-            ReDraw();
+        public static void carClick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < car_list.Count; i++)
+            {
+                if(((Button)sender).Text == car_list[i].btn.Text)
+                {
+                    InfoForm info = new InfoForm(car_list[i]);
+                    info.ShowDialog();
+                }
+            }
+            
         }
 
-        void ReDraw()
+        private void MainForm_Load(object sender, EventArgs e)
         {
             #region Чтение объектов
             car_list.Clear();
+            ViewPanel.Controls.Clear();
 
             string[] strs = System.IO.File.ReadAllLines("Cars.txt");
 
@@ -103,24 +117,6 @@ namespace Auto
                 }
             }
             #endregion
-        }
-
-        public static void carClick(object sender, EventArgs e)
-        {
-            for (int i = 0; i < car_list.Count; i++)
-            {
-                if(((Button)sender).Text == car_list[i].btn.Text)
-                {
-                    InfoForm info = new InfoForm(car_list[i]);
-                    info.ShowDialog();
-                }
-            }
-            
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {            
-
         }
 
         private void ViewPanel_Resize(object sender, EventArgs e)
@@ -279,6 +275,7 @@ namespace Auto
                 player_error.Play();
                 MessageBox.Show("Добавлять объекты имеет право только администратор");
             }
+            MainForm_Load(null, null);
         }
 
         private void удалитьМашинуToolStripMenuItem_Click(object sender, EventArgs e)
@@ -293,6 +290,7 @@ namespace Auto
                 player_error.Play();
                 MessageBox.Show("Добавлять объекты имеет право только администратор");
             }
+            MainForm_Load(null, null);
         }
     }
 }

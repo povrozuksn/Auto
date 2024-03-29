@@ -24,25 +24,45 @@ namespace Auto
 
         private void DelButton_Click(object sender, EventArgs e)
         {
-            File.Delete("Cars.txt");
-            for (int i = 0; i < MainForm.car_list.Count; i++)
-            {
-                if (comboBox1.Text == MainForm.car_list[i].name)
-                {
+            var result = DialogResult.No;
 
-                }
-                else 
-                {
-                    File.AppendAllText("Cars.txt",
-                                        MainForm.car_list[i].name + ", " +
-                                        MainForm.car_list[i].kuzov + ", " +
-                                        MainForm.car_list[i].kpp + ", " +
-                                        MainForm.car_list[i].power + ", " +
-                                        MainForm.car_list[i].price + ", " +
-                                        MainForm.car_list[i].web + 
-                                        Environment.NewLine);
-                }
+            if (comboBox1.Text != "")
+            {
+                result = MessageBox.Show("Вы действительно хотите удалить выбранный объект?",
+                                                "Удаление объекта",
+                                                MessageBoxButtons.YesNo);
             }
+            else
+            {
+                MessageBox.Show("Вы ничего не выбрали");
+                return;
+            }
+
+            if(result == DialogResult.Yes)
+            {
+                File.Delete("Cars.txt");
+                for (int i = 0; i < MainForm.car_list.Count; i++)
+                {
+                    if (comboBox1.Text == MainForm.car_list[i].name)
+                    {
+
+                    }
+                    else 
+                    {
+                        File.AppendAllText("Cars.txt",
+                                            MainForm.car_list[i].name + ", " +
+                                            MainForm.car_list[i].kuzov + ", " +
+                                            MainForm.car_list[i].kpp + ", " +
+                                            MainForm.car_list[i].power + ", " +
+                                            MainForm.car_list[i].price + ", " +
+                                            MainForm.car_list[i].web + 
+                                            Environment.NewLine);
+                    }
+                }            
+                MessageBox.Show("Удаление прошло успешно");
+                Close();
+            }
+
         }
     }
 }
