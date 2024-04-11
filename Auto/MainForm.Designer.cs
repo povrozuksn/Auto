@@ -52,6 +52,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.добавитьМашинуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьМашинуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FeedBackButton = new System.Windows.Forms.Button();
             this.UserPanel.SuspendLayout();
             this.FiltrPanel.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -70,6 +71,7 @@
             // UserPanel
             // 
             this.UserPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.UserPanel.Controls.Add(this.FeedBackButton);
             this.UserPanel.Controls.Add(this.SelectFormBTN);
             this.UserPanel.Controls.Add(this.HelpButton);
             this.UserPanel.Controls.Add(this.RegButton);
@@ -103,7 +105,7 @@
             // 
             // RegButton
             // 
-            this.RegButton.Location = new System.Drawing.Point(724, 12);
+            this.RegButton.Location = new System.Drawing.Point(787, 12);
             this.RegButton.Name = "RegButton";
             this.RegButton.Size = new System.Drawing.Size(156, 37);
             this.RegButton.TabIndex = 2;
@@ -277,7 +279,7 @@
             this.добавитьМашинуToolStripMenuItem,
             this.удалитьМашинуToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 52);
             // 
             // добавитьМашинуToolStripMenuItem
             // 
@@ -289,9 +291,19 @@
             // удалитьМашинуToolStripMenuItem
             // 
             this.удалитьМашинуToolStripMenuItem.Name = "удалитьМашинуToolStripMenuItem";
-            this.удалитьМашинуToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.удалитьМашинуToolStripMenuItem.Size = new System.Drawing.Size(205, 24);
             this.удалитьМашинуToolStripMenuItem.Text = "Удалить машину";
             this.удалитьМашинуToolStripMenuItem.Click += new System.EventHandler(this.удалитьМашинуToolStripMenuItem_Click);
+            // 
+            // FeedBackButton
+            // 
+            this.FeedBackButton.Location = new System.Drawing.Point(713, 12);
+            this.FeedBackButton.Name = "FeedBackButton";
+            this.FeedBackButton.Size = new System.Drawing.Size(184, 37);
+            this.FeedBackButton.TabIndex = 5;
+            this.FeedBackButton.Text = "Обратная связь";
+            this.FeedBackButton.UseVisualStyleBackColor = true;
+            this.FeedBackButton.Click += new System.EventHandler(this.FeedBackButton_Click);
             // 
             // MainForm
             // 
@@ -342,6 +354,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem добавитьМашинуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьМашинуToolStripMenuItem;
+        private System.Windows.Forms.Button FeedBackButton;
     }
 }
 

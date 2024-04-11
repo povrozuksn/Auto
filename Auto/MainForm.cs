@@ -61,6 +61,7 @@ namespace Auto
             Text = "Справочник по автомобилям";
             HelloLabel.Visible = false;
             SelectFormBTN.Visible = false;
+            FeedBackButton.Visible = false;
            
         }
         
@@ -144,6 +145,7 @@ namespace Auto
                 HelloLabel.Visible = false;
                 RegButton.Visible = true;
                 SelectFormBTN.Visible = false;
+                FeedBackButton.Visible = false;
             }
             else
             {
@@ -151,6 +153,7 @@ namespace Auto
                 HelloLabel.Visible = true;
                 RegButton.Visible = false;
                 SelectFormBTN.Visible = true;
+                FeedBackButton.Visible = true;
                 HelloLabel.Text = "Вы авторизовались как " + AuthForm.name + " " + AuthForm.family;
             }            
         }
@@ -291,6 +294,12 @@ namespace Auto
                 MessageBox.Show("Добавлять объекты имеет право только администратор");
             }
             MainForm_Load(null, null);
+        }
+
+        private void FeedBackButton_Click(object sender, EventArgs e)
+        {
+            FeedBackForm feedBackForm = new FeedBackForm();
+            feedBackForm.ShowDialog();
         }
     }
 }

@@ -64,6 +64,12 @@
     <Compile Include="DelCarForm.Designer.cs">
       <DependentUpon>DelCarForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FeedBackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedBackForm.Designer.cs">
+      <DependentUpon>FeedBackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DelCarForm.resx">
       <DependentUpon>DelCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeedBackForm.resx">
+      <DependentUpon>FeedBackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HelpForm.resx">
       <DependentUpon>HelpForm.cs</DependentUpon>

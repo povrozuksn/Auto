@@ -16,3 +16,4 @@ C:\Users\root\Source\Repos\Auto\Auto\obj\Debug\Auto.HelpForm.resources
 C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.SelectForm.resources
 C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.AddCarForm.resources
 C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.DelCarForm.resources
+C:\Users\root\source\repos\Auto\Auto\obj\Debug\Auto.FeedBackForm.resources
