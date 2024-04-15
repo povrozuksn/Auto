@@ -23,7 +23,7 @@ namespace Auto
 
         void Draw()
         {
-            Controls.Clear();
+            InfoPanel.Controls.Clear();
 
             int y = 50;
             foreach (KeyValuePair<Car, int> my_car in my_cars_list)
@@ -36,7 +36,7 @@ namespace Auto
                 pb.Location = new Point(50, y);
                 pb.Size = new Size(230, 145);
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
-                Controls.Add(pb);
+                InfoPanel.Controls.Add(pb);
                 #endregion
 
                 #region Название объекта
@@ -44,7 +44,7 @@ namespace Auto
                 lbl1.Text = "Модель - " + car.name;
                 lbl1.Location = new Point(300, y);
                 lbl1.Size = new Size(300, 30);
-                Controls.Add(lbl1);
+                InfoPanel.Controls.Add(lbl1);
                 #endregion
 
                 #region Кнопка перехода на страницу объекта
@@ -53,7 +53,7 @@ namespace Auto
                 btn.Size = new Size(130, 40);
                 btn.Text = car.name;
                 btn.Click += new EventHandler(MainForm.carClick);
-                Controls.Add(btn);
+                InfoPanel.Controls.Add(btn);
                 #endregion
 
                 #region Тип кузова объекта
@@ -61,7 +61,7 @@ namespace Auto
                 lbl2.Text = "Тип кузова - " + car.kuzov;
                 lbl2.Location = new Point(600, y);
                 lbl2.Size = new Size(300, 30);
-                Controls.Add(lbl2);
+                InfoPanel.Controls.Add(lbl2);
                 #endregion
 
                 #region Тип трансмисии объекта
@@ -69,7 +69,7 @@ namespace Auto
                 lbl3.Text = "Тип трансмисии - " + car.kpp;
                 lbl3.Location = new Point(600, y + 50);
                 lbl3.Size = new Size(300, 30);
-                Controls.Add(lbl3);
+                InfoPanel.Controls.Add(lbl3);
                 #endregion
 
                 #region Мощность двигателя объекта
@@ -77,7 +77,7 @@ namespace Auto
                 lbl4.Text = "Мощность двигателя - " + car.power + " л.с.";
                 lbl4.Location = new Point(600, y + 100);
                 lbl4.Size = new Size(300, 30);
-                Controls.Add(lbl4);
+                InfoPanel.Controls.Add(lbl4);
                 #endregion
 
                 #region Цена объекта
@@ -85,7 +85,7 @@ namespace Auto
                 lbl5.Text = "Цена: " + car.price;
                 lbl5.Location = new Point(900, y);
                 lbl5.Size = new Size(200, 30);
-                Controls.Add(lbl5);
+                InfoPanel.Controls.Add(lbl5);
                 #endregion
 
                 #region Количество
@@ -93,13 +93,13 @@ namespace Auto
                 lbl6.Text = "Кол, шт.:";
                 lbl6.Location = new Point(900, y + 65);
                 lbl6.Size = new Size(300, 30);
-                Controls.Add(lbl6);
+                InfoPanel.Controls.Add(lbl6);
 
                 NumericUpDown numericUpDown1 = new NumericUpDown();
                 numericUpDown1.Location = new Point(900, y + 100);
                 numericUpDown1.Size = new Size(100, 30);
                 numericUpDown1.Value = new decimal(my_car.Value);
-                Controls.Add(numericUpDown1);
+                InfoPanel.Controls.Add(numericUpDown1);
                 #endregion
 
                 #region Кнопка удаления из Избранного
@@ -108,7 +108,7 @@ namespace Auto
                 btn1.Size = new Size(130, 40);
                 btn1.Text = "Удалить";
                 btn1.Click += new EventHandler(DeleteClick);
-                Controls.Add(btn1);
+                InfoPanel.Controls.Add(btn1);
                 #endregion
 
                 y += 180;
@@ -135,6 +135,12 @@ namespace Auto
             }
             my_cars_list = my_cars;
             Draw();
+        }
+
+        private void SendButton_Click(object sender, EventArgs e)
+        {
+            SendForm send = new SendForm();
+            send.ShowDialog();
         }
     }
 }
