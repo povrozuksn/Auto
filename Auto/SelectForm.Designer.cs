@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             this.SysPanel = new System.Windows.Forms.Panel();
-            this.InfoPanel = new System.Windows.Forms.Panel();
             this.SendButton = new System.Windows.Forms.Button();
+            this.InfoPanel = new System.Windows.Forms.Panel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.SysPanel.SuspendLayout();
+            this.InfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // SysPanel
@@ -44,15 +47,6 @@
             this.SysPanel.Size = new System.Drawing.Size(1282, 60);
             this.SysPanel.TabIndex = 0;
             // 
-            // InfoPanel
-            // 
-            this.InfoPanel.AutoScroll = true;
-            this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InfoPanel.Location = new System.Drawing.Point(0, 60);
-            this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(1282, 573);
-            this.InfoPanel.TabIndex = 1;
-            // 
             // SendButton
             // 
             this.SendButton.Location = new System.Drawing.Point(525, 12);
@@ -62,6 +56,23 @@
             this.SendButton.Text = "Отправить на Email";
             this.SendButton.UseVisualStyleBackColor = true;
             this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
+            // 
+            // InfoPanel
+            // 
+            this.InfoPanel.AutoScroll = true;
+            this.InfoPanel.Controls.Add(this.numericUpDown1);
+            this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InfoPanel.Location = new System.Drawing.Point(0, 60);
+            this.InfoPanel.Name = "InfoPanel";
+            this.InfoPanel.Size = new System.Drawing.Size(1282, 573);
+            this.InfoPanel.TabIndex = 1;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(1072, 243);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 30);
+            this.numericUpDown1.TabIndex = 0;
             // 
             // SelectForm
             // 
@@ -76,6 +87,8 @@
             this.Name = "SelectForm";
             this.Text = "Избранное";
             this.SysPanel.ResumeLayout(false);
+            this.InfoPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -85,5 +98,6 @@
         private System.Windows.Forms.Panel SysPanel;
         private System.Windows.Forms.Panel InfoPanel;
         private System.Windows.Forms.Button SendButton;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

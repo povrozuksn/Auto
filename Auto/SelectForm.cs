@@ -21,6 +21,14 @@ namespace Auto
             Draw();
         }
 
+        void Calc()
+        {
+            foreach(KeyValuePair<Car, int> my_car in my_cars_list)
+            {
+
+            }
+        }
+
         void Draw()
         {
             InfoPanel.Controls.Clear();
@@ -88,6 +96,14 @@ namespace Auto
                 InfoPanel.Controls.Add(lbl5);
                 #endregion
 
+                #region Итого объекта
+                Label lbl_5 = new Label();
+                lbl_5.Text = "Итого: " + (car.price * my_car.Value).ToString();
+                lbl_5.Location = new Point(900, y+30);
+                lbl_5.Size = new Size(200, 30);
+                InfoPanel.Controls.Add(lbl_5);
+                #endregion
+
                 #region Количество
                 Label lbl6 = new Label();
                 lbl6.Text = "Кол, шт.:";
@@ -99,6 +115,7 @@ namespace Auto
                 numericUpDown1.Location = new Point(900, y + 100);
                 numericUpDown1.Size = new Size(100, 30);
                 numericUpDown1.Value = new decimal(my_car.Value);
+                numericUpDown1.ValueChanged += new EventHandler(CountChanged);
                 InfoPanel.Controls.Add(numericUpDown1);
                 #endregion
 
@@ -113,6 +130,47 @@ namespace Auto
 
                 y += 180;
             }
+        }
+
+        private void CountChanged(object sender, EventArgs e)
+        {
+            NumericUpDown nud = (NumericUpDown)sender;
+            for(int i=0; i<my_cars_list.Count; i++)
+            {
+                if (nud.Location == new Point(900, 150 + 180 * i))
+                {
+                    int price = 0;
+                    Image image = null;
+                    foreach (Control ctrl in InfoPanel.Controls)
+                    {
+                        if (ctrl is PictureBox && ctrl.Location == new Point(50, 50 + 180 * i))
+                        {
+                            image = ((PictureBox)ctrl).Image;
+                        }
+                    }
+                    foreach (Car car in MainForm.car_list)
+                    {
+                        if (car.pic.Image == image)
+                        {
+                            my_cars_list[car] = Convert.ToInt32(nud.Value);
+                        }
+                    }
+                    foreach (Control ctrl in InfoPanel.Controls)
+                    {
+                        if (ctrl is Label && ctrl.Location == new Point(900, 50 + 180 * i))
+                        {
+                            price = Convert.ToInt32(ctrl.Text.Replace("Цена: ", ""));
+                        }
+                    }
+                    foreach (Control ctrl in InfoPanel.Controls)
+                    {
+                        if (ctrl is Label && ctrl.Location == new Point(900, 80 + 180 * i))
+                        {
+                            ctrl.Text = "Итого: " + (price * nud.Value).ToString();
+                        }
+                    }
+                }
+            }   
         }
 
         void DeleteClick(object sender, EventArgs e)
