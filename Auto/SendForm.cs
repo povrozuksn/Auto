@@ -27,6 +27,8 @@ namespace Auto
 
         private void OkButton_Click(object sender, EventArgs e)
         {
+            string fileName = "Избранное_" + MainForm.Login + ".csv";
+
             MailAddress from = new MailAddress("spravochnik.avtomobilnyy@mail.ru");
 
             if (AdressTextBox.Text == "")
@@ -46,16 +48,18 @@ namespace Auto
                                     "Мы прислали Вам список выбранных автомоюилей в нашем приложении";
                     message.IsBodyHtml = true;
 
-                    File.AppendAllText("Избранное.csv", "Наименование;Количество;Цена");
+                    File.AppendAllText(fileName, "Наименование;Количество;Цена;Стоимость");
 
                     foreach (KeyValuePair<Car, int> my_car in SelectForm.my_cars_list)
                     {
                         Car car = my_car.Key;
-                        File.AppendAllText("Избранное.csv", Environment.NewLine +
-                            car.name + ";" + my_car.Value + ";" + car.price);
+                        File.AppendAllText(fileName, Environment.NewLine +
+                            car.name + ";" + my_car.Value + ";" + car.price + ";" + my_car.Value*car.price);
                     }
 
-                    message.Attachments.Add(new Attachment("Избранное.csv"));
+                    File.AppendAllText(fileName, Environment.NewLine + "Итого: ;;;" + SelectForm.TotalPrice);
+
+                    message.Attachments.Add(new Attachment(fileName));
 
                     client.Host = "smtp.mail.ru";
                     client.Port = 587;
@@ -68,6 +72,7 @@ namespace Auto
 
                 MessageBox.Show("Письмо отправлено");
                 Close();
+                File.Delete(fileName);
             }
         }
     }

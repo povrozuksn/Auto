@@ -31,15 +31,14 @@
             this.SysPanel = new System.Windows.Forms.Panel();
             this.SendButton = new System.Windows.Forms.Button();
             this.InfoPanel = new System.Windows.Forms.Panel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.TotalPriceLabel = new System.Windows.Forms.Label();
             this.SysPanel.SuspendLayout();
-            this.InfoPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // SysPanel
             // 
             this.SysPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.SysPanel.Controls.Add(this.TotalPriceLabel);
             this.SysPanel.Controls.Add(this.SendButton);
             this.SysPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SysPanel.Location = new System.Drawing.Point(0, 0);
@@ -49,7 +48,7 @@
             // 
             // SendButton
             // 
-            this.SendButton.Location = new System.Drawing.Point(525, 12);
+            this.SendButton.Location = new System.Drawing.Point(12, 12);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(224, 40);
             this.SendButton.TabIndex = 0;
@@ -60,19 +59,20 @@
             // InfoPanel
             // 
             this.InfoPanel.AutoScroll = true;
-            this.InfoPanel.Controls.Add(this.numericUpDown1);
             this.InfoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoPanel.Location = new System.Drawing.Point(0, 60);
             this.InfoPanel.Name = "InfoPanel";
             this.InfoPanel.Size = new System.Drawing.Size(1282, 573);
             this.InfoPanel.TabIndex = 1;
             // 
-            // numericUpDown1
+            // TotalPriceLabel
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(1072, 243);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 30);
-            this.numericUpDown1.TabIndex = 0;
+            this.TotalPriceLabel.AutoSize = true;
+            this.TotalPriceLabel.Location = new System.Drawing.Point(621, 20);
+            this.TotalPriceLabel.Name = "TotalPriceLabel";
+            this.TotalPriceLabel.Size = new System.Drawing.Size(64, 25);
+            this.TotalPriceLabel.TabIndex = 1;
+            this.TotalPriceLabel.Text = "label1";
             // 
             // SelectForm
             // 
@@ -87,8 +87,7 @@
             this.Name = "SelectForm";
             this.Text = "Избранное";
             this.SysPanel.ResumeLayout(false);
-            this.InfoPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.SysPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -98,6 +97,6 @@
         private System.Windows.Forms.Panel SysPanel;
         private System.Windows.Forms.Panel InfoPanel;
         private System.Windows.Forms.Button SendButton;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label TotalPriceLabel;
     }
 }

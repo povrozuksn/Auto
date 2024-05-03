@@ -13,6 +13,7 @@ namespace Auto
     public partial class SelectForm : Form
     {
         public static Dictionary<Car, int> my_cars_list = new Dictionary<Car, int>();
+        public static int TotalPrice = 0;
 
         public SelectForm()
         {
@@ -23,9 +24,10 @@ namespace Auto
 
         void Calc()
         {
-            foreach(KeyValuePair<Car, int> my_car in my_cars_list)
+            TotalPrice = 0;
+            foreach (KeyValuePair<Car, int> my_car in my_cars_list)
             {
-
+                TotalPrice += my_car.Value * my_car.Key.price;
             }
         }
 
@@ -130,6 +132,8 @@ namespace Auto
 
                 y += 180;
             }
+            Calc();
+            TotalPriceLabel.Text = "ИТОГОВАЯ СТОИМОСТЬ ИЗБРАННОГО, руб.: " + TotalPrice.ToString();
         }
 
         private void CountChanged(object sender, EventArgs e)
@@ -137,13 +141,13 @@ namespace Auto
             NumericUpDown nud = (NumericUpDown)sender;
             for(int i=0; i<my_cars_list.Count; i++)
             {
-                if (nud.Location == new Point(900, 150 + 180 * i))
+                if (nud.Location == new Point(900, 150 + 180 * i + InfoPanel.AutoScrollPosition.Y))
                 {
                     int price = 0;
                     Image image = null;
                     foreach (Control ctrl in InfoPanel.Controls)
                     {
-                        if (ctrl is PictureBox && ctrl.Location == new Point(50, 50 + 180 * i))
+                        if (ctrl is PictureBox && ctrl.Location == new Point(50, 50 + 180 * i + InfoPanel.AutoScrollPosition.Y))
                         {
                             image = ((PictureBox)ctrl).Image;
                         }
@@ -157,18 +161,20 @@ namespace Auto
                     }
                     foreach (Control ctrl in InfoPanel.Controls)
                     {
-                        if (ctrl is Label && ctrl.Location == new Point(900, 50 + 180 * i))
+                        if (ctrl is Label && ctrl.Location == new Point(900, 50 + 180 * i + InfoPanel.AutoScrollPosition.Y))
                         {
                             price = Convert.ToInt32(ctrl.Text.Replace("Цена: ", ""));
                         }
                     }
                     foreach (Control ctrl in InfoPanel.Controls)
                     {
-                        if (ctrl is Label && ctrl.Location == new Point(900, 80 + 180 * i))
+                        if (ctrl is Label && ctrl.Location == new Point(900, 80 + 180 * i + InfoPanel.AutoScrollPosition.Y))
                         {
                             ctrl.Text = "Итого: " + (price * nud.Value).ToString();
                         }
                     }
+                    Calc();
+                    TotalPriceLabel.Text = "ИТОГОВАЯ СТОИМОСТЬ ИЗБРАННОГО, руб.: " + TotalPrice.ToString();
                 }
             }   
         }
